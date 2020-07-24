@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+    Scanner in=new Scanner(System.in);
+        for(String s=in.nextLine(); s.charAt(0)!='0'; s=in.nextLine()){
+            String [] nums=s.split(" ");
+            Stack<String> stack=new Stack<String>();
+            for(int i=nums.length-1;i>=0;i--){
+                if(nums[i].equals("+")||nums[i].equals("-")){
+                    String s1=stack.pop(), s2=stack.pop();
+                    stack.push(s1+" "+s2+" "+nums[i]);
+                }else{
+                    stack.push(nums[i]);
+                }
+                
+                
+            }
+            System.out.println(stack.pop());
+        }
+    }
+    
+}
